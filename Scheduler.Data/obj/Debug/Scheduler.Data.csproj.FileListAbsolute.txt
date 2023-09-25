@@ -1,0 +1,13 @@
+C:\dev\apps\sample.data\bin\Debug\x86\sqlite3.dll
+C:\dev\apps\sample.data\bin\Debug\x64\sqlite3.dll
+C:\dev\apps\sample.data\bin\Debug\SQLite.Interop.dll
+C:\dev\apps\sample.data\bin\Debug\System.Data.SQLite.dll
+C:\dev\apps\sample.data\bin\Debug\System.Data.SQLite.xml
+C:\dev\apps\sample.data\bin\Debug\Scheduler.Data.dll
+C:\dev\apps\sample.data\bin\Debug\Scheduler.Data.pdb
+C:\dev\apps\sample.data\obj\Debug\Scheduler.Data.csproj.CoreCompileInputs.cache
+C:\dev\apps\sample.data\obj\Debug\Scheduler.Data.csproj.CopyComplete
+C:\dev\apps\sample.data\obj\Debug\Scheduler.Data.dll
+C:\dev\apps\sample.data\obj\Debug\Scheduler.Data.pdb
+C:\dev\apps\sample.data\bin\Debug\scheduler.db
+C:\dev\apps\sample.data\obj\Debug\Scheduler.Data.csprojAssemblyReference.cache

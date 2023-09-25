@@ -1,0 +1,1 @@
+C:\dev\apps\sample.data\obj\Debug\sample.data.csproj.CoreCompileInputs.cache

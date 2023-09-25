@@ -1,0 +1,99 @@
+﻿CREATE TABLE TaskType (
+    Id INTEGER NOT NULL,
+    Description TEXT NOT NULL,
+    CONSTRAINT PK_TaskType PRIMARY KEY (
+        Id
+    )
+);
+
+INSERT INTO TaskType (Id, Description) values (1, 'Ad-Hoc');
+INSERT INTO TaskType (Id, Description) values (2, 'Scheduled');
+
+CREATE TABLE Alogorithm (
+    Code TEXT NOT NULL, 
+    Description TEXT NOT NULL,
+    PRIMARY KEY (Code)
+);
+
+INSERT INTO Alogorithm (Code, Description) values ('MIN', 'Minimum Pooling');
+INSERT INTO Alogorithm (Code, Description) values ('AVG', 'Average Pooling');
+INSERT INTO Alogorithm (Code, Description) values ('MAX', 'Maximum Pooling');
+
+CREATE TABLE Task (
+    Id             INTEGER NOT NULL,CREATE TABLE TaskType (
+    Id INTEGER NOT NULL,
+    Description TEXT NOT NULL,
+    CONSTRAINT PK_TaskType PRIMARY KEY (
+        Id
+    )
+);
+
+INSERT INTO TaskType (Id, Description) values (1, 'Ad-Hoc');
+INSERT INTO TaskType (Id, Description) values (2, 
+
+CREATE TABLE Alogorithm (
+    Code TEXT NOT NULL, 
+    Description TEXT NOT NULL,
+    PRIMARY KEY (Code)
+);
+
+INSERT INTO Alogorithm (Code, Description) values ('MIN', 'Minimum Pooling');
+INSERT INTO Alogorithm (Code, Description) values ('AVG', 'Average Pooling');
+INSERT INTO Alogorithm (Code, Description) values ('MAX', 'Maximum Pooling');
+
+CREATE TABLE Task (
+    Id             INTEGER NOT NULL,
+    MediaFile      TEXT    NOT NULL,
+    AlogorithmCode TEXT    NOT NULL,
+    TaskTypeId     INTEGER NOT NULL,
+    RequestedStart TEXT    NULL,
+    MaxExecutionSeconds   INTEGER NOT NULL DEFAULT -1, 
+    LatestCompletion TEXT  NULL,
+    CONSTRAINT PK_Task PRIMARY KEY (
+        Id
+    ), 
+    CONSTRAINT FK_TaskType FOREIGN KEY (TaskTypeId) REFERENCES TaskType(Id),
+    CONSTRAINT FK_Alogorithm FOREIGN KEY (AlogorithmCode) REFERENCES Alogorithm(Code)
+);
+
+
+CREATE TABLE Queue (
+    Id           INTEGER NOT NULL,
+    Status       INTEGER NOT NULL,
+    TaskId       INTEGER NOT NULL,
+    CreateTs     TEXT    NOT NULL,
+    CreateUser   TEXT    NOT NULL,
+    LastChangeTs   TEXT,
+    LastChangeUser TEXT,
+    CONSTRAINT PK_Queue PRIMARY KEY (
+        Id
+    ),
+    CONSTRAINT FK_Task FOREIGN KEY (TaskId) References Task(Id)
+);
+    MediaFile      TEXT    NOT NULL,
+    AlogorithmCode TEXT    NOT NULL,
+    TaskTypeId     INTEGER NOT NULL,
+    RequestedStart TEXT    NULL,
+    MaxExecutionSeconds   INTEGER NOT NULL DEFAULT -1, 
+    LatestCompletion TEXT  NULL,
+    CONSTRAINT PK_Task PRIMARY KEY (
+        Id
+    ), 
+    CONSTRAINT FK_TaskType FOREIGN KEY (TaskTypeId) REFERENCES TaskType(Id),
+    CONSTRAINT FK_Alogorithm FOREIGN KEY (AlogorithmCode) REFERENCES Alogorithm(Code)
+);
+
+
+CREATE TABLE Queue (
+    Id           INTEGER NOT NULL,
+    Status       INTEGER NOT NULL,
+    TaskId       INTEGER NOT NULL,
+    CreateTs     TEXT    NOT NULL,
+    CreateUser   TEXT    NOT NULL,
+    LastChangeTs   TEXT,
+    LastChangeUser TEXT,
+    CONSTRAINT PK_Queue PRIMARY KEY (
+        Id
+    ),
+    CONSTRAINT FK_Task FOREIGN KEY (TaskId) References Task(Id)
+);
