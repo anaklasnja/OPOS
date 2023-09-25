@@ -5,22 +5,32 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using sample.data;
+using Scheduler.Logic;
 
 namespace Scheduler.UI
 {
     public partial class MainForm : Form
     {
+        private SchedulerWorker worker; 
+
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void Main_Load(object sender, EventArgs e)
-        {
 
+        private void StartSchedulerWorker()
+        {
+            if (this.worker != null)
+            {
+                MessageBox.Show(this, "Scheduler worker thread is already running.", "Error", MessageBoxButtons.OK);
+            }
+            worker = new SchedulerWorker();
+            worker.Start();
         }
 
         private void RedisplayData()
@@ -49,7 +59,7 @@ namespace Scheduler.UI
         private void SetTitle()
         {
             // set title here based on whatever (environment, user, etc..)
-            this.Text = string.Format("Scheduler");
+            this.Text = "Scheduler [" + (worker == null ? "Unknown" : worker.Status) + "]";
         }
 
         private void dataGridViewMain_MouseClick(object sender, MouseEventArgs e)
@@ -69,6 +79,7 @@ namespace Scheduler.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            StartSchedulerWorker();
             RedisplayData();
         }
 
@@ -91,6 +102,40 @@ namespace Scheduler.UI
             {
                 RedisplayData();
             }
+        }
+
+        private void FormAppPropOnClosed(object sender, EventArgs e)
+        {
+            FormAppProp frm = (FormAppProp)sender;
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                //todo: if scheduler running, restart it here
+                MessageBox.Show("TODO: add logic here to restart scheduler.");
+            }
+        }
+
+        private void configToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAppProp formEndPoint = new FormAppProp();
+            formEndPoint.Closed += FormAppPropOnClosed;
+            formEndPoint.ShowDialog(this);
+        }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAddNewTaskForm();
+        }
+
+        private void statusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormScheduler f = new FormScheduler(worker);
+            f.Closed += FormSchedulerOnClosed;
+            f.ShowDialog(this);
+        }
+
+        private void FormSchedulerOnClosed(object sender, EventArgs e)
+        {
+            SetTitle();
         }
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.Data", "Scheduler
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.UI", "Scheduler.UI\Scheduler.UI.csproj", "{3C06DECD-2F55-4CB7-9E32-D65B5A774882}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.Logic", "Scheduler.Logic\Scheduler.Logic.csproj", "{1A6B3598-88C4-44AD-9EE6-BAB78533B0DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3C06DECD-2F55-4CB7-9E32-D65B5A774882}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C06DECD-2F55-4CB7-9E32-D65B5A774882}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C06DECD-2F55-4CB7-9E32-D65B5A774882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A6B3598-88C4-44AD-9EE6-BAB78533B0DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6B3598-88C4-44AD-9EE6-BAB78533B0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6B3598-88C4-44AD-9EE6-BAB78533B0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6B3598-88C4-44AD-9EE6-BAB78533B0DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

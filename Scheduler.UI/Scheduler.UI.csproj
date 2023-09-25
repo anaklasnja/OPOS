@@ -49,11 +49,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHelper.cs" />
+    <Compile Include="FormAppProp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAppProp.Designer.cs">
+      <DependentUpon>FormAppProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditProperty.Designer.cs">
+      <DependentUpon>FormEditProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNewTask.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNewTask.Designer.cs">
       <DependentUpon>FormNewTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormScheduler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormScheduler.Designer.cs">
+      <DependentUpon>FormScheduler.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -63,8 +81,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAppProp.resx">
+      <DependentUpon>FormAppProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditProperty.resx">
+      <DependentUpon>FormEditProperty.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormNewTask.resx">
       <DependentUpon>FormNewTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormScheduler.resx">
+      <DependentUpon>FormScheduler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -96,6 +123,10 @@
     <ProjectReference Include="..\Scheduler.Data\Scheduler.Data.csproj">
       <Project>{301f7002-359e-4667-850f-1eb3a4429fdc}</Project>
       <Name>Scheduler.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Scheduler.Logic\Scheduler.Logic.csproj">
+      <Project>{1a6b3598-88c4-44ad-9ee6-bab78533b0de}</Project>
+      <Name>Scheduler.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

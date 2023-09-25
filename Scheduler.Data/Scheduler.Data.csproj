@@ -54,6 +54,7 @@
     <Compile Include="DatabaseInfo.cs" />
     <Compile Include="DataStore.cs" />
     <Compile Include="IDatabaseInfo.cs" />
+    <Compile Include="Property.cs" />
     <Compile Include="SchedulerDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLiteConnectionInfo.cs" />

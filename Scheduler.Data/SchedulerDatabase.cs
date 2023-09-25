@@ -48,6 +48,22 @@ namespace sample.data
             DataSet ds = ExecuteReader(new SQLiteCommand("select * from TaskType"));
             return DataTableToList<TaskType>(GetFirstTable(ds));
         }
+        public List<Property> GetProperties()
+        {
+            DataSet ds = ExecuteReader(new SQLiteCommand("select * from Property"));
+            return DataTableToList<Property>(GetFirstTable(ds));
+        }
+
+        public bool UpdateProperty(Property p)
+        {
+            SQLiteCommand cmd = new SQLiteCommand(@"update property set Value = @Value where Id = @Id");
+            SQLiteParameter p1 = new SQLiteParameter(DbType.String) { ParameterName = "@Id", Direction = ParameterDirection.Input, Value = p.Id };
+            SQLiteParameter p2 = new SQLiteParameter(DbType.String) { ParameterName = "@Value", Direction = ParameterDirection.Input, Value = p.Value };
+
+            bool success = ExecuteNonQuery(cmd, new SQLiteParameter[] { p1, p2 }) != 0;
+
+            return success;
+        }
 
         public List<Alogorithm> GetAlogorithms()
         {
